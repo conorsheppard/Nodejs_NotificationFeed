@@ -18,9 +18,11 @@ This application uses the Node.js framework, the Express framework and MongoDB a
 
 The brains of this application, where the requests are handled and the database queries are carried out, are the two following files:
 
-	**app.js** - Includes the dependencies, routes and sort function for the notifications.
+**app.js** - Includes the dependencies, routes and sort function for the notifications.
+
 &
-	**notification.js** - Includes the DB schema and DB functions for the notifications.
+
+**notification.js** - Includes the DB schema and DB functions for the notifications.
 
 **GET:** When ran, this application runs on port 3000. Go to http://localhost:3000/notifications/by_user/id to view the notifications for a given user (id is a user id). 
 The notifications will be displayed in time order descending based on the UNIX timestamp field.
