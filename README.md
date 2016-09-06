@@ -1,4 +1,3 @@
-"spell_check": true
 ##Notification Feed Exercise built with Node.js
 
 **Spec:**
@@ -12,6 +11,11 @@ and returns the following:
 		{"id": int, "user_id": int, "timestamp": int, "message": String}
 
 GET /notifications/by_user/<user_id> which returns a JSON list of the last N Notifications in time (priority) order descending
+
+**Dependencies**
+
+This application uses the Node.js framework, the Express framework and MongoDB as a Database.
+
 
 **GET:** When ran, this application runs on port 3000. Go to http://localhost:3000/notifications/by_user/id to view the notifications for a given user (id is a user id). 
 The notifications will be displayed in time order descending based on the UNIX timestamp field.
