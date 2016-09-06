@@ -60,4 +60,4 @@ I have also included a Java file which I used to perform speed and scalability t
 **Test 3:** 10,000 get requests for 1 user = 16798394000ns = 16.80s
 	-> ~595 requests/sec
 
-As for concurrency, when I jacked up the amount of threads running the application seemed to be able to handle it without trouble. The largest number of threads I tested on it was 100 threads doing 100 requests each.
+As for concurrency, when I jacked up the amount of threads running, the application seemed to be able to handle it without trouble. The largest number of threads I tested on it was 100 threads doing 100 requests each.
