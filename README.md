@@ -20,6 +20,8 @@ This application uses the Node.js framework, the Express framework and MongoDB a
 **GET:** When ran, this application runs on port 3000. Go to http://localhost:3000/notifications/by_user/id to view the notifications for a given user (id is a user id). 
 The notifications will be displayed in time order descending based on the UNIX timestamp field.
 
+![GET Request Screenshot](/screenshots/GET%20before%20refresh.png?raw=true "Optional Title")
+
 **POST:** The application accepts POST requests at the following address http://localhost:3000/notifications where new notifications can be stored in the database.
 The data should come in as a JSON data structure as outlined in the spec, with an added read field which holds a boolean value to record whether the notification has been read or not.
 
