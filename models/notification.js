@@ -16,24 +16,28 @@ Notification = module.exports = mongoose.model('Notification', notificationSchem
 
 // Get notifications
 module.exports.getNotifications = function(callback, id) {
-    console.log('in getNotifications: id = ' + id);
     Notification.find({ user_id: id }, callback);
 }
 
 module.exports.newNotification = function(notification, callback) {
     var timestamp = Math.floor(new Date() / 1000);
-    console.log('time = ' + timestamp);
     notification.timestamp = timestamp;
     Notification.create(notification, callback);
 }
 
 module.exports.updateNotification = function(id, notification, options, callback) {
-    console.log('in updateNotification: '+ notification.user_id);
     var query = {_id: id};
     var update = {
         timestamp: Math.floor(new Date() / 1000),
         message: notification.message,
         read: false
     }
+    Notification.findOneAndUpdate(query, update, options, callback);
+}
+
+// Read a notification - set "read" to true.
+module.exports.readNotification = function(id, notification, options, callback) {
+    var query = {_id: id};
+    var update = { read: true }
     Notification.findOneAndUpdate(query, update, options, callback);
 }

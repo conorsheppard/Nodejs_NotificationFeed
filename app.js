@@ -10,28 +10,27 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // MongoDB
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/notification_feed');
+// mongoose.connect('mongodb://localhost/notification_feed');
+mongoose.connect('mongodb://localhost/notifications');
 var db = mongoose.connection;
 
 // Routes
 app.get('/notifications/by_user/:id', function(req, res){
     var id = req.params.id;
-    console.log('Processing request for user: ' + id);
     Notification.getNotifications(function(err, notifications){
         if(err) throw err;
         notifications.sort(sort_by('timestamp', true, parseInt)); // sort by timestamp descending
-        res.send(JSON.stringify(notifications, null, 4));
+        res.send(JSON.stringify(notifications, null, 2));
         // markAsRead:
-        /*for (var notification in notifications) {
-            console.log('notification = ' + notification);
-            if (!notification.read) {
-             notification.read = true;
-             Notification.updateNotification(id, notification, {}, function (err, notification) {
-             if (err) throw err;
-             res.json(notification);
-             });
-             }
-        }*/
+        for (var notification in notifications) {
+            var curNotification = notifications[notification];
+            if (!curNotification.read) {
+                curNotification.read = true;
+                Notification.readNotification(curNotification._id, curNotification, {}, function (err) {
+                    if (err) throw err;
+                });
+            }
+        }
     }, id);
 });
 
@@ -55,7 +54,6 @@ app.put('/notifications/update', function(req, res){
 
 // sort function
 var sort_by = function(field, reverse, primer){
-
     var key = primer ?
         function(x) {return primer(x[field])} :
         function(x) {return x[field]};
