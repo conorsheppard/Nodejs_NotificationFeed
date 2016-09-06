@@ -14,7 +14,7 @@ GET /notifications/by_user/<user_id> which returns a JSON list of the last N Not
 
 **Dependencies**
 
-This application uses the Node.js framework, the Express framework and MongoDB as a Database.
+This application uses the Node.js framework, the Express framework and MongoDB as the Database.
 
 
 **GET:** When ran, this application runs on port 3000. Go to http://localhost:3000/notifications/by_user/id to view the notifications for a given user (id is a user id). 
@@ -51,3 +51,13 @@ The request is a success and we can see the updated message in the user's notifi
 
 I have also included a Java file which I used to perform speed and scalability tests on this application. I also conducted concurrency testing and ran multiple threads to perform GET requests on the system and see how it handled them.
 
+**Test 1:** 10,000 get requests for 1 user = 18475359000ns = 18.48s
+	-> ~540 requests/sec
+
+**Test 2:** 10,000 get requests for 1 user = 17012480000ns = 17.01s
+	-> ~588 requests/sec
+
+**Test 3:** 10,000 get requests for 1 user = 16798394000ns = 16.80s
+	-> ~595 requests/sec
+
+As for concurrency, when I jacked up the amount of threads running the application seemed to be able to handle it without trouble. The largest number of threads I tested on it was 100 threads doing 100 requests each.

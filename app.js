@@ -17,6 +17,7 @@ var db = mongoose.connection;
 // Routes
 app.get('/notifications/by_user/:id', function(req, res){
     var id = req.params.id;
+    console.log("Performing get for user: " + id);
     Notification.getNotifications(function(err, notifications){
         if(err) throw err;
         notifications.sort(sort_by('timestamp', true, parseInt)); // sort by timestamp descending
@@ -45,7 +46,6 @@ app.post('/notifications', function (req, res) {
 app.put('/notifications/update', function(req, res){
     var id = req.body._id;
     var notification = req.body;
-    console.log('in put: ' + notification.user_id);
     Notification.updateNotification(id, notification, {}, function(err, notification){
         if(err) throw err;
         res.json(notification);
