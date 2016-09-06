@@ -47,7 +47,7 @@ Updating a message with a PUT request.
 The request is a success and we can see the updated message in the user's notification feed.
 ![GET Request after PUT Screenshot](/screenshots/Updated%20notification.png?raw=true)
 
-###Testing Speed/Scalability
+##Testing Speed/Scalability
 
 I have also included a Java file which I used to perform speed and scalability tests on this application. I also conducted concurrency testing and ran multiple threads to perform GET requests on the system and see how it handled them.
 
