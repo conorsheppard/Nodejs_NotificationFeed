@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bea94035-6cb6-4f49-b765-198923020c82" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/notification.js" afterPath="$PROJECT_DIR$/models/notification.js" />
-    </list>
+    <list default="true" id="bea94035-6cb6-4f49-b765-198923020c82" name="Default" comment="" />
     <ignored path="Nodejs_NotificationFeed.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -260,12 +257,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1473178067576</updated>
-      <workItem from="1473178069259" duration="3271000" />
+      <workItem from="1473178069259" duration="3479000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3271000" />
+    <option name="totallyTimeSpent" value="3479000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="23" width="777" height="773" extended-state="0" />
