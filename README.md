@@ -21,13 +21,19 @@ This application uses the Node.js framework, the Express framework and MongoDB a
 The notifications will be displayed in time order descending based on the UNIX timestamp field.
 
 Returning all notification for user with user_id 100. Notice how all but the most recent notifications have read set to true
-![GET Request Screenshot](/screenshots/GET%20before%20refresh.png?raw=true)
+![GET Request 1 Screenshot](/screenshots/GET%20before%20refresh.png?raw=true)
 
 After a refresh i.e. after the notification has been read, the most recent notification has read set to true also.
-![GET Request Screenshot](/screenshots/Get%20after%20refresh.png?raw=true)
+![GET Request 2 Screenshot](/screenshots/Get%20after%20refresh.png?raw=true)
 
 **POST:** The application accepts POST requests at the following address http://localhost:3000/notifications where new notifications can be stored in the database.
 The data should come in as a JSON data structure as outlined in the spec, with an added read field which holds a boolean value to record whether the notification has been read or not.
+
+Using the Chrome extension Postman to send a post request to the application.
+![POST Request Screenshot](/screenshots/POST%20Request.png?raw=true)
+
+The request is a success and returns the following.
+![POST Response Screenshot](/screenshots/POST%20Return.png?raw=true)
 
 **PUT:** As an extra feature, the application accepts PUT requests at the following address http://localhost:3000/notifications/update which takes in a JSON array with 3 fields: 
 	"_id" - the id of the notification, 
@@ -35,6 +41,11 @@ The data should come in as a JSON data structure as outlined in the spec, with a
 	"message" - the message to be updated.
 The read field is then automatically reset to false.
 
+Updating a message with a PUT request.
+![PUT Request Screenshot](/screenshots/PUT%20request.png?raw=true)
+
+The request is a success and we can see the updated message in the user's notification feed.
+![GET Request after PUT Screenshot](/screenshots/Updated%20notification.png?raw=true)
 
 **Testing Speed/Scalability**
 
